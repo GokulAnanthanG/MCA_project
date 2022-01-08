@@ -1,0 +1,75 @@
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="searchMarkForm" (ngSubmit)="search()">
+            <div class="row">
+                <div class="col-lg-3">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Course Name</mat-label>
+                        <input  formControlName="course"   required matInput type="text">
+                    </mat-form-field> 
+                </div>
+                <div class="col-lg-3">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Batch</mat-label>
+                        <input  formControlName="batch"   required matInput type="text">
+                    </mat-form-field> 
+                </div>
+                <div class="col-lg-3">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Subject</mat-label>
+                        <input  formControlName="subject"   required matInput type="text">
+                    </mat-form-field> 
+                </div>
+                <div class="col-lg-3">
+                    <button mat-button><mat-icon>search</mat-icon></button>
+                </div>
+                <!--row-->
+            </div>
+        </form>
+        <mat-divider></mat-divider>
+        <br>
+        <p align="center"*ngIf="!data">No mark list</p>
+       <div class="mark" *ngIf="data">
+        <div class="row">
+            <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>No of no of students</mat-label>
+                    <input  value="{{markArray.noOfStudents}}" required matInput type="text">
+                </mat-form-field> 
+            </div>
+        </div>
+         
+        
+        <table id="excel-table" class="table" >
+            <thead>
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Reg no</th>
+                <th scope="col">In Sem Mark</th>
+                <th scope="col">I SAII</th>
+                <th scope="col">2 SAII</th>
+                <th scope="col">Submission</th>
+                <th scope="col">Mark</th>
+                <th scope="col">Result</th>
+        
+              </tr>
+            </thead>
+            <tbody *ngFor="let mark of markArray.marks,let i =index">
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{mark.regNo}}</td>
+                <td>{{mark.inSemMark}}</td>
+                <td>{{mark.ISAI}}</td>
+                <td>{{mark.ISAII}}</td>
+                <td>{{mark.submission}}</td>
+                <td matTooltip="{{'inSemMark: '+mark.inSemMark+' ISAI: '+mark.ISAI+' ISAII: '+mark.ISAII+' submission: '+mark.submission}}">{{mark.inSemMark+mark.ISAI+mark.ISAII+mark.submission}}</td>
+                <td>{{mark.inSemMark+mark.ISAI+mark.ISAII+mark.submission<40?'fail':'pass'}}</td>
+               </tr>
+            </tbody>
+          </table>
+        
+
+        <button mat-button color="warn" (click)="deleteMark(markArray._id)"><mat-icon>delete</mat-icon></button>
+       </div>
+    </mat-card-content>
+</mat-card>

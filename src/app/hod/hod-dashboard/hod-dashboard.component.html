@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+    <div class="toolbar__section1"><h5>HOD Dashboard</h5></div>
+    <div class="toolbar__section2">
+      <div class="row ">
+          <div class="col-lg-6"><button mat-button matTooltip="HOD"><mat-icon>account_circle</mat-icon>&nbsp;&nbsp;{{HOD_DATA.name}}</button></div>
+          <div class="col-lg-6"><button matTooltip="Logout" mat-button (click)="logOut()" ><mat-icon>exit_to_app</mat-icon></button></div>
+      </div>
+    </div>
+  </mat-toolbar>
+
+
+  <div class="cont">
+    <br>
+    <mat-card>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-lg-4">
+                    <br><br>
+                    <h2 align="center">Control</h2>
+                    <div class="cont__row__action">
+                        <button matTooltip="Add Course" mat-raised-button routerLink="/hod/addCourse" color="warn"><mat-icon>add</mat-icon>&nbsp; Add Course</button>
+                        <br><br>
+                        <button matTooltip="View Course" mat-raised-button routerLink="/hod/viewCourse"><mat-icon color="accent">remove_red_eye
+                        </mat-icon>&nbsp; View Course</button>
+                          <br><br>
+                        <button matTooltip="view department staff" mat-raised-button routerLink="/hod/viewDepTeacher"><mat-icon color="accent">remove_red_eye</mat-icon>&nbsp;View Department Teacher</button>
+                        <br><br>
+                        <button matTooltip="Generate MarkSheet" mat-raised-button routerLink="/hod/genMark" color="primary"><mat-icon>insert_drive_file</mat-icon>&nbsp; Generate Mark</button>
+                        <!--action-->
+                    </div>
+                </div>
+                <div class="col-lg-8 card__section2">
+                    <h2 align="center">Action</h2>
+<router-outlet> </router-outlet>
+                </div>
+                <!--parent row-->
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

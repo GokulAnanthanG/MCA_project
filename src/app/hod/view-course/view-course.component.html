@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-content>
+        <div class="row" *ngFor="let data of courseArray">
+            <div class="col-lg-6 p-2">
+                <table class="table table-bordered">
+                    <tr><th>Course Name</th><th>No of subject</th><th>Department</th></tr>
+                    <tr><td>{{data.courseName}}</td><td>{{data.noOfSubject}}</td><td>{{data.department}}</td></tr>
+                </table>
+            </div>
+            <div class="col-lg-6 p-2">
+                <table table table-stripped>
+                    <tr><th>subject</th> <th>Teacher In Charge</th></tr>
+                <tr *ngFor="let data2 of data.subjects,let i = index">
+                   <td>{{i+1}} .</td> <td>{{data2.subject}}</td>
+                    <td>{{data2.teacherIncharge}}</td>
+                </tr>
+            </table>
+            <button mat-button color="warn" (click)="deleteCourse(data._id)"><mat-icon>delete</mat-icon></button>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+        <p align="center" *ngIf="courseArray.length==0">No course added yet</p>
+    </mat-card-content>
+</mat-card>

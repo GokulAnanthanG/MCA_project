@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>HOD Name</mat-label>
+            <input matInput type="text" (keyup)="search($event)">
+        </mat-form-field>
+    
+<div class="container">
+    <p *ngIf="dataArray.length==0" align="center">No records</p>
+    <table *ngFor="let data of dataArray" class="table table-striped table-bordered">
+        <tr><td>
+            <img class="img-fluid img-thumbnail" src="http://localhost:4000/static/img/{{data.imgUrl}}" alt="">
+        </td>
+            <th>Name:</th>
+<td matTooltip="hod name">{{data.name}}</td>
+<th>Department:</th>
+<td matTooltip="hod department">{{data.department}}</td>
+<th>Qualification:</th>
+<td matTooltip="hod qualification">{{data.qualification}}</td>
+<th>userName:</th>
+<td matTooltip="hod userName">{{data.userName}}</td>
+<th>password:</th>
+<td matTooltip="hod password">{{data.password}}</td>
+<td><button mat-button color="warn" (click)="delete(data._id)"><mat-icon>delete</mat-icon></button></td>
+        </tr>
+    </table>
+</div>
+
+    </mat-card-content>
+</mat-card>

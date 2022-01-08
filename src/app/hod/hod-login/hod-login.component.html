@@ -1,0 +1,31 @@
+<div class="container">
+    <br>
+    <h2 align="center">HOD Login</h2>
+    <mat-card>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-lg-6">
+                   <div class="container">
+                    <img height="80%" class="img-fluid card__section1__img" src="../../../assets/admin login.svg" alt="">
+                   </div>
+                </div>
+                <div class="col-lg-6 card__section2">
+                    <br><br>
+                    <h3 align="center">HOD Details</h3>
+                    <form [formGroup]="loginForm" (ngSubmit)="formSubmit()">
+                        <mat-form-field appearance="outline">
+                            <mat-label>User Name</mat-label>
+                            <input formControlName="userName" required matInput type="text">
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input formControlName="password" matInput type="password" required name="" id="">
+                        </mat-form-field>
+                        <button mat-raised-button color="primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

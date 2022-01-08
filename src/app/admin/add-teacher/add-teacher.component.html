@@ -1,0 +1,67 @@
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="hodForm" (ngSubmit)="addHod()">
+            <div class="row">
+                <div class="col-lg-4">
+          
+                  <mat-form-field appearance="outline">
+                  <mat-label>Teacher Name</mat-label>
+                  <input formControlName="name" required matInput type="text">
+              </mat-form-field>
+                </div>
+          
+          
+                <div class="col-lg-4">
+                     <label>Image</label>
+                  <input formControlName="image" (change)="imageSelect($event)" name="studentImage"  class="form-control" required   type="file">
+                </div>
+                
+                <div class="col-lg-4">
+                  <mat-form-field appearance="outline">
+                  <mat-label>Age</mat-label>
+                  <input formControlName="age" required matInput type="number">
+              </mat-form-field>
+                </div>
+
+
+                <div class="col-lg-4">
+                    <mat-form-field appearance="outline">
+                    <mat-label>Department</mat-label>
+                    <input formControlName="department" required matInput type="text">
+                </mat-form-field>
+                  </div>
+
+                <div class="col-lg-4">
+                    <mat-form-field appearance="outline">
+                    <mat-label>Qualification</mat-label>
+                    <input formControlName="qualification" required matInput type="text">
+                </mat-form-field>
+                  </div>
+
+
+                  <div class="col-lg-4">
+                    <mat-form-field appearance="outline">
+                    <mat-label>User name</mat-label>
+                    <input formControlName="userName" required matInput type="text">
+                </mat-form-field>
+                  </div>
+
+
+                  <div class="col-lg-4">
+                    <mat-form-field appearance="outline">
+                    <mat-label>password</mat-label>
+                    <input formControlName="password" required matInput type="password">
+                </mat-form-field>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <mat-form-field appearance="outline">
+                    <mat-label>Confirm password</mat-label>
+                    <input formControlName="cpassword" required matInput type="password">
+                </mat-form-field>
+                  </div>          
+            </div>  
+            <button mat-button color="primary"><mat-icon>add</mat-icon>&nbsp; Add Teacher</button>
+          </form>
+    </mat-card-content>
+</mat-card>

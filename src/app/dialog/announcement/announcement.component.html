@@ -1,0 +1,9 @@
+     <p mat-dialog-title align="center">Announcement</p>
+     <div mat-dialog-content>
+<p align="center" *ngIf="anArray.length==0">No Announcement Yet</p>
+        <table *ngFor="let data of anArray" class="table table-stripped">
+            <tr ><td class="table-primary"><p>You are the in-charge for </p></td><td class="table-warning"><p matTooltip="subject">{{data.subject}}</p></td><td class="table-success"><p matTooltip="department">{{teacher.department}}</p></td></tr>
+        </table>
+
+     </div>
+ 

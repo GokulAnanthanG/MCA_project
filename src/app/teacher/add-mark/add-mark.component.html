@@ -1,0 +1,115 @@
+<mat-card>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table table-bordered">
+                    <caption>Department course list</caption>
+                    <tr *ngFor="let course of course">
+                        <td>{{course}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <table class="table table-bordered">
+                    <caption>in-charge Subjects</caption>
+                    <tr *ngFor="let subject of anArray">
+                        <td>{{subject.subject}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <h3>Add Mark</h3>
+        <form  [formGroup]="courseForm" (ngSubmit)="addCourse()">
+
+           <div class="row">
+            <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                <mat-label>Course Name</mat-label>
+                <input  formControlName="courseName"  required matInput type="text">
+            </mat-form-field>
+              </div>
+
+
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                <mat-label>No of Studets in class</mat-label>
+                <input  formControlName="noOfStudents" (keyup)="noOfSubject($event)"  required matInput type="number">
+            </mat-form-field>
+              </div>
+
+
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                <mat-label>Department</mat-label>
+                <input  formControlName="department"  required matInput type="text">
+            </mat-form-field>
+</div>
+            <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                <mat-label>batch</mat-label>
+                <input  formControlName="batch"  required matInput type="text">
+            </mat-form-field>
+            </div>
+            <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                <mat-label>Subject</mat-label>
+                <input  formControlName="subject"  required matInput type="text">
+            </mat-form-field>
+              </div>
+            <!--row-->
+           </div>
+<div formArrayName="marks">
+<div class="row" *ngFor="let data of courseForm.controls.marks['controls'];let i=index" [formGroupName]="i">
+
+
+    <div class="col-lg-4">
+        <mat-form-field appearance="outline">
+        <mat-label>S.NO</mat-label>
+        <input   readonly value="{{i+1}}"  required matInput type="text">
+    </mat-form-field>
+      </div>
+
+    <div class="col-lg-4">
+        <mat-form-field appearance="outline">
+        <mat-label>Register Number</mat-label>
+        <input  formControlName="regNo"  required matInput type="number">
+    </mat-form-field>
+</div>
+
+    <div class="col-lg-4">
+        <mat-form-field appearance="outline">
+        <mat-label>In Sem Mark</mat-label>
+        <input  formControlName="inSemMark"  required matInput type="number">
+    </mat-form-field>
+</div>
+
+    <div class="col-lg-4">
+        <mat-form-field appearance="outline">
+        <mat-label>1 SA I</mat-label>
+        <input  formControlName="ISAI"  required matInput type="number">
+    </mat-form-field>
+    </div>
+
+    <div class="col-lg-4">
+        <mat-form-field appearance="outline">
+        <mat-label>2 SA I</mat-label>
+        <input  formControlName="ISAII"  required matInput type="number">
+    </mat-form-field>
+      </div>
+
+      <div class="col-lg-4">
+      <mat-form-field appearance="outline">
+      <mat-label>Submission</mat-label>
+      <input  formControlName="submission"  required matInput type="number">
+  </mat-form-field>
+  <br>
+  <mat-divider></mat-divider>
+    </div>
+<!--row-->
+</div>
+</div>
+<button mat-raised-button>Add Mark</button>
+        </form>
+    </mat-card-content>
+</mat-card>
